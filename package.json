@@ -7,7 +7,7 @@
     "node": "13.12.0"
   },
   "scripts": {
-    "start": "dotenv .bin/www",
+    "start": "per-env",
     "start:development": "nodemon -r dotenv/config ./bin/www",
     "start:production": "./bin/www",
     "db:create": "dotenv sequelize-cli db:create",
