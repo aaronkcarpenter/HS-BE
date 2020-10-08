@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const users = await queryInterface.bulkInsert(
-      "Users",
+      "UserTables",
       [
         {
           username: faker.internet.userName(),
@@ -25,35 +25,9 @@ module.exports = {
       ],
       { returning: true }
     );
-
-    return queryInterface.bulkInsert(
-      "Tweets",
-      [
-        {
-          message: faker.company.catchPhrase(),
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          userId: users[0].id,
-        },
-        {
-          message: faker.company.catchPhrase(),
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          userId: users[0].id,
-        },
-        {
-          message: faker.company.catchPhrase(),
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          userId: users[1].id,
-        },
-      ],
-      {}
-    );
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("Tweets", null, {});
-    return queryInterface.bulkDelete("Users", null, {});
+    return queryInterface.bulkDelete("UserTables", null, {});
   },
 };
