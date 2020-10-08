@@ -9,14 +9,12 @@ module.exports = {
       "UserTables",
       [
         {
-          username: faker.internet.userName(),
           email: faker.internet.email(),
           hashedPassword: bcrypt.hashSync('password'),
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          username: faker.internet.userName(),
           email: faker.internet.email(),
           hashedPassword: bcrypt.hashSync('password'),
           createdAt: new Date(),
